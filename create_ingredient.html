@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger</title>
+    <style href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand ms-4" href="index.html">Burger</a>
+        <div class="collapse navbar-collapse" >
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="create_ingredient.html">Creation ingredient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+    <div class="container" style="height: 50px;"></div>
+      <div class="shadow rounded w-75 container d-flex align-items-center" style="height: 500px;;">
+          <div class="shadow rounded w-75 container d-flex align-items-center  justify-content-center" style="height: 300px;">
+              
+            
+            <form>
+                <!-- champ nom -->
+                <label for="nom">Nom de l'ingredient</label> <br>
+                <input type="text" id="nom" name="nom" placeholder="Exemple : Tomate">
+            
+                <br><br>
+                <!-- champ Quantité -->
+                <label for="number">Quantité</label> <br>
+                <input type="number" id="Quantité" name="Quantité" min="1" placeholder="Minimum 1" />
+
+            
+                <br><br>
+                <!-- bouton de validation -->
+                <button class="btn btn-primary">Creer l'ingrédient</button>
+            </form>
+            
+          </div>
+
+
+          <div class="shadow rounded w-75 container d-flex align-items-center  justify-content-center" style="height: 300px;">
+            
+          
+            <img class="shadow rounded" src="images/ingredient/liste_ingredient.png" alt="Image de Burger" style="text-align: center; width: 150px; height: 150px;">
+   
+          </div>
+      </div>
+
+
+
+
+
+
+  </div>
+
+
+  
+  <script src="script/create_ingredient.js" type="module"></script>
+
+
+
+
+
+
+
+
+</body>
