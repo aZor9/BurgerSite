@@ -19,4 +19,4 @@ function changeDiaporamaBurgerImg() {
     }
 }
 
-setInterval(changeDiaporamaBurgerImg, 10000);
+setInterval(changeDiaporamaBurgerImg, 1000);
