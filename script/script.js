@@ -1,7 +1,6 @@
 const diaporamaBurgerImg = document.getElementById("diaporamaBurgerImg");
 const burgerName = document.getElementById("burgerName");
 
-
 const imgBurgerName = [
     "burger_naturel",
     "burger_vegetarien"
@@ -10,11 +9,10 @@ const imgBurgerName = [
 let index = 0;
 
 function changeDiaporamaBurgerImg() {
-
     let path = imgBurgerName[index];
     diaporamaBurgerImg.setAttribute("src", "images/burger/" + path + ".jpeg");
 
-    getBurgerName(path);
+    burgerName.textContent = formatBurgerName(path);
 
     if ((index + 1) == imgBurgerName.length) {
         index = 0;
@@ -23,19 +21,18 @@ function changeDiaporamaBurgerImg() {
     }
 }
 
+
+
+function formatBurgerName(path) {
+    return path.replace("_", " ")
+}
+
 diaporamaBurgerImg.onclick = function () {
-    if (burgerName.getAttribute("style") == "display: none;") {
-        console.log(burgerName.getAttribute("style"));
-        burgerName.setAttribute("style", "display: flex;");
-        burgerName.textContent(getBurgerName());
+    if (burgerName.style.display === "none") {
+        burgerName.style.display = "block";
     } else {
-        burgerName.setAttribute("style", "display: none;");
+        burgerName.style.display = "none";
     }
 };
 
-function getBurgerName(path) {
-    return path.split("_");
-}
-
 setInterval(changeDiaporamaBurgerImg, 1000);
-
