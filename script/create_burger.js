@@ -1,22 +1,50 @@
-const listeIngredients = {
-    "option1": "Valeur 1",
-    "option2": "Valeur 2",
-    "option3": "Valeur 3",
-    "option4": "Valeur 4"
-  };
-  
-  const ingredient1 = document.getElementById("ingredient1");
-  
-  // Parcours du dictionnaire et ajout d'options dans la liste déroulante
-  for (const key in listeIngredients) {
-    if (listeIngredients.hasOwnProperty(key)) {  // Vérifie que la clé appartient au dictionnaire
-      const option = document.createElement("option"); // Crée un élément <option>
-      option.value = key;                            // Définit la valeur de l'option
-      option.textContent = listeIngredients[key];     // Définit le texte affiché
-      ingredient1.appendChild(option);                // Ajoute l'option à la liste déroulante
-    }
-  }
 
 
-// a faire : ajouter l'ingrédient à la liste des ingrédients : dictionnaire ou map ?
-// a faire : modifier valeur de listeIngredients
+const savedIngredients = localStorage.getItem("listeIngredients"); // Récupérer la Map depuis le localStorage et la convertir en Map
+let listeIngredients = new Map(); // Initialisation de la Map
+
+if (savedIngredients) {
+    listeIngredients = new Map(JSON.parse(savedIngredients)); // Convertir la chaîne JSON en array, puis en Map
+    
+    // Ajouter un ingrédient par défaut
+    listeIngredients.set("Salade Test", 10); 
+    listeIngredients.set("Tomate Test", 5);
+    listeIngredients.set("Cornichon Test", 4);
+    listeIngredients.set("Fromage Test", 2);
+    listeIngredients.set("Steak Test", 1);
+    listeIngredients.set("Sauce Test", 1);
+
+
+    
+    console.log(listeIngredients);
+} else {
+    console.log("Aucun ingrédient n'a été enregistré");
+}
+
+
+  
+const ingredient1 = document.getElementById("ingredient1");
+const ingredient2 = document.getElementById("ingredient2");
+const ingredient3 = document.getElementById("ingredient3");
+
+
+listeIngredients.forEach((quantite, nom) => {
+  const option = document.createElement("option"); // Crée une option
+  option.value = nom;                               // Définit la valeur
+  option.textContent = `${nom} - ${quantite}`;      // Affiche le nom et la quantité
+  ingredient1.appendChild(option);                  // Ajoute à la liste déroulante
+});
+
+listeIngredients.forEach((quantite, nom) => {
+  const option = document.createElement("option"); // Crée une option
+  option.value = nom;                               // Définit la valeur
+  option.textContent = `${nom} - ${quantite}`;      // Affiche le nom et la quantité
+  ingredient2.appendChild(option);                  // Ajoute à la liste déroulante
+});
+
+listeIngredients.forEach((quantite, nom) => {
+  const option = document.createElement("option"); // Crée une option
+  option.value = nom;                               // Définit la valeur
+  option.textContent = `${nom} - ${quantite}`;      // Affiche le nom et la quantité
+  ingredient3.appendChild(option);                  // Ajoute à la liste déroulante
+});

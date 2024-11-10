@@ -35,15 +35,15 @@
 
     <div class="shadow rounded w-75 container d-flex align-items-center  justify-content-center my-5 form-group"
       style="height: 300px;">
-      <form>
+      <form id="creationIngredient">
         <!-- champ nom -->
         <label for="nom">Nom de l'ingredient</label> <br>
-        <input class="form-control" type="text" id="nom" name="nom" placeholder="Exemple : Tomate">
+        <input class="form-control" type="text" id="nomIngredient" name="nom" placeholder="Exemple : Tomate">
 
         <br>
         <!-- champ Quantité -->
         <label for="number">Quantité</label> <br>
-        <input class="form-control" type="text" id="Quantité" name="Quantité" placeholder="Minimum 1" />
+        <input class="form-control" type="text" id="quantiteIngredient" name="Quantité" placeholder="Minimum 1" />
 
 
         <br>
@@ -53,8 +53,8 @@
     </div>
 
     <div>
-      <p class="alert alert-danger shadow" id="ErreurIngredient" style="display:none;">Il y a une erreur dans la
-        quantité !</p>
+      <p class="alert alert-danger shadow" id="ErreurIngredientQuantite" style="display:none;">Il y a une erreur dans la quantité !</p>
+      <p class="alert alert-danger shadow" id="ErreurIngredientNom" style="display:none;">Il y a une erreur dans le nom !</p>
     </div>
 
     <div class="shadow rounded w-75 container d-flex align-items-center justify-content-center my-5"
@@ -64,8 +64,6 @@
     </div>
   </div>
 
-
-  <div class="container" style="height: 50px;"></div>
 
 
 
