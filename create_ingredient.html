@@ -23,7 +23,7 @@
           <a class="nav-link" href="create_ingredient.html">Creation ingredient</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="create_burger.html">Creation Burger</a>
         </li>
       </ul>
     </div>
@@ -31,34 +31,38 @@
 
 
   <div class="container" style="height: 50px;"></div>
-  <div class="shadow rounded w-75 container d-flex align-items-center " style="height: 500px;;">
+  <div class="shadow rounded w-75 container d-flex flex-column align-items-center ">
 
-    <div class="shadow rounded w-75 container d-flex align-items-center  justify-content-center" style="height: 300px;">
+    <div class="shadow rounded w-75 container d-flex align-items-center  justify-content-center my-5 form-group" style="height: 300px;">
       <form>
         <!-- champ nom -->
         <label for="nom">Nom de l'ingredient</label> <br>
-        <input type="text" id="nom" name="nom" placeholder="Exemple : Tomate">
+        <input class="form-control" type="text" id="nom" name="nom" placeholder="Exemple : Tomate">
 
-        <br><br>
+        <br>
         <!-- champ Quantité -->
         <label for="number">Quantité</label> <br>
-        <input type="number" id="Quantité" name="Quantité" min="1" placeholder="Minimum 1" />
+        <input class="form-control" type="text" id="Quantité" name="Quantité" placeholder="Minimum 1" />
 
 
-        <br><br>
+        <br>
         <!-- bouton de validation -->
         <button class="btn btn-primary">Creer l'ingrédient</button>
       </form>
     </div>
 
+    <div>
+      <p class="alert alert-danger shadow" id="ErreurIngredient" style="display:none;">Il y a une erreur dans la quantité !</p>
+    </div>
 
-    <div class="shadow rounded w-75 container d-flex align-items-center justify-content-center" style="height: 300px;">
+    <div class="shadow rounded w-75 container d-flex align-items-center justify-content-center my-5" style="height: 300px;">
       <img class="shadow rounded" src="images/ingredient/liste_ingredient.png" alt="Image de Burger"
-        style="text-align: center; width: 150px; height: 150px;">
+        style="text-align: center; width: 250px; ">
     </div>
   </div>
 
 
+  <div class="container" style="height: 50px;"></div>
 
 
 
@@ -72,8 +76,6 @@
 
 
 
-  https://developer.mozilla.org/fr/docs/Learn/Forms/Form_validation
-  + le truc d'aurelien
 
 
 
