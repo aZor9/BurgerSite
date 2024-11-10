@@ -1,4 +1,4 @@
-const diaporamaBurgerImg = document.getElementById("diaporamaBurgerImg");
+const slideshowBurgerImg = document.getElementById("slideshowBurgerImg");
 const burgerName = document.getElementById("burgerName");
 
 const imgBurgerName = [
@@ -10,7 +10,7 @@ let index = 0;
 
 function changeDiaporamaBurgerImg() {
     let path = imgBurgerName[index];
-    diaporamaBurgerImg.setAttribute("src", "images/burger/" + path + ".jpeg");
+    slideshowBurgerImg.setAttribute("src", "images/burger/" + path + ".jpeg");
 
     burgerName.textContent = formatBurgerName(path);
 
