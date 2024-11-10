@@ -27,7 +27,7 @@ function formatBurgerName(path) {
     return path.replace("_", " ")
 }
 
-diaporamaBurgerImg.onclick = function () {
+slideshowBurgerImg.onclick = function () {
     if (burgerName.style.display === "none") {
         burgerName.style.display = "block";
     } else {
