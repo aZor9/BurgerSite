@@ -10,6 +10,9 @@ quantity.addEventListener("keyup", function (event) { // ajoute un écouteur d'�
     ErreurIngredient.style.display = "block";
   } else { // sinon
     ErreurIngredient.style.display = "none";
-    // a faire : ajouter l'ingrédient à la liste des ingrédients : dictionnaire
   }
 });
+
+
+
+// a faire : ajouter l'ingrédient à la liste des ingrédients : dictionnaire ou map ?
