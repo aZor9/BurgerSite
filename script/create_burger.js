@@ -21,6 +21,35 @@ if (window.localStorage.getItem("listeBurgers")) { // si la clé "listeBurgers" 
   const savedBurgers = window.localStorage.getItem("listeBurgers"); // Récupérer la Map depuis le localStorage et la convertir en Map
   listeBurgers = new Map(JSON.parse(savedBurgers)); // Convertir la chaîne JSON en array, puis en Map
   window.localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
+
+
+
+// Sélectionnez le corps de tableau où les burgers seront affichés
+const burgerTableBody = document.querySelector("#burgerTable tbody");
+
+// Parcourez chaque burger dans la Map listeBurgers et créez une ligne pour chacun
+listeBurgers.forEach((ingredients, nomBurger) => {
+  // Créer une nouvelle ligne de tableau
+  const row = document.createElement("tr");
+
+  // Créer une cellule pour le nom du burger
+  const nameCell = document.createElement("td");
+  nameCell.textContent = nomBurger;
+  row.appendChild(nameCell);
+
+  // Créer une cellule pour les ingrédients
+  const ingredientsCell = document.createElement("td");
+  ingredientsCell.textContent = ingredients.join(", "); // Convertit l'array d'ingrédients en une chaîne
+  row.appendChild(ingredientsCell);
+
+  // Ajouter la ligne au corps du tableau
+  burgerTableBody.appendChild(row);
+});
+
+
+
+
+
 }
 
 listeIngredients.forEach((quantite, nom) => {
