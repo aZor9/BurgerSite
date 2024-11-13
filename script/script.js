@@ -21,8 +21,6 @@ function changeDiaporamaBurgerImg() {
     }
 }
 
-
-
 function formatBurgerName(path) {
     return path.replace("_", " ")
 }
@@ -37,8 +35,6 @@ slideshowBurgerImg.onclick = function () {
 
 setInterval(changeDiaporamaBurgerImg, 1000);
 
-
+// test localStorage
 // window.localStorage.setItem("test", "test");
 // console.log(window.localStorage.getItem("test"));
-
-

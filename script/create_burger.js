@@ -13,7 +13,6 @@ const ingredient1 = document.getElementById("ingredient1");
 const ingredient2 = document.getElementById("ingredient2");
 const ingredient3 = document.getElementById("ingredient3");
 
-  
 // Liste des burgers
 let listeBurgers = new Map(); // Map listant les burgers (nom, ingrédients)
 let ingredientBurger = []; // Array listant les ingrédients de chaque burger (ingrédient1, ingrédient2, ingrédient3)
@@ -22,50 +21,38 @@ if (window.localStorage.getItem("listeBurgers")) { // si la clé "listeBurgers" 
   listeBurgers = new Map(JSON.parse(savedBurgers)); // Convertir la chaîne JSON en array, puis en Map
   window.localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
 
-
-
-// Sélectionnez le corps de tableau où les burgers seront affichés
-const burgerTableBody = document.querySelector("#burgerTable tbody");
-
-// Parcourez chaque burger dans la Map listeBurgers et créez une ligne pour chacun
-listeBurgers.forEach((ingredients, nomBurger) => {
-  // Créer une nouvelle ligne de tableau
-  const row = document.createElement("tr");
-
-  // Créer une cellule pour le nom du burger
-  const nameCell = document.createElement("td");
-  nameCell.textContent = nomBurger;
-  row.appendChild(nameCell);
-
-  // Créer une cellule pour les ingrédients
-  const ingredientsCell = document.createElement("td");
-  ingredientsCell.textContent = ingredients.join(", "); // Convertit l'array d'ingrédients en une chaîne
-  row.appendChild(ingredientsCell);
-
-  // Ajouter la ligne au corps du tableau
-  burgerTableBody.appendChild(row);
-});
-
-
-
-
-
+  // Sélectionnez le corps de tableau où les burgers seront affichés
+  const burgerTableBody = document.querySelector("#burgerTable tbody");
+  // Parcourez chaque burger dans la Map listeBurgers et créez une ligne pour chacun
+  listeBurgers.forEach((ingredients, nomBurger) => {
+    // Créer une nouvelle ligne de tableau
+    const row = document.createElement("tr");
+    // Créer une cellule pour le nom du burger
+    const nameCell = document.createElement("td");
+    nameCell.textContent = nomBurger;
+    row.appendChild(nameCell);
+    // Créer une cellule pour les ingrédients
+    const ingredientsCell = document.createElement("td");
+    ingredientsCell.textContent = ingredients.join(", "); // Convertit l'array d'ingrédients en une chaîne
+    row.appendChild(ingredientsCell);
+    // Ajouter la ligne au corps du tableau
+    burgerTableBody.appendChild(row);
+  });
 }
 
+//affichage des ingrédients
 listeIngredients.forEach((quantite, nom) => {
   const option = document.createElement("option"); // Crée une option
   option.value = nom;                               // Définit la valeur
   option.textContent = `${nom} - ${quantite}`;      // Affiche le nom et la quantité
   ingredient1.appendChild(option);                  // Ajoute à la liste déroulante
 });
-
 listeIngredients.forEach((quantite, nom) => {
   const option = document.createElement("option"); // Crée une option
   option.value = nom;                               // Définit la valeur
   option.textContent = `${nom} - ${quantite}`;      // Affiche le nom et la quantité
   ingredient2.appendChild(option);                  // Ajoute à la liste déroulante
 });
-
 listeIngredients.forEach((quantite, nom) => {
   const option = document.createElement("option"); // Crée une option
   option.value = nom;                               // Définit la valeur
@@ -73,19 +60,19 @@ listeIngredients.forEach((quantite, nom) => {
   ingredient3.appendChild(option);                  // Ajoute à la liste déroulante
 });
 
-
-
+// création du burger
 document.getElementById("creationBurger").addEventListener("submit", function(event) {
   event.preventDefault(); // empêche l'envoi du formulaire pour pouvoir traiter les données
 
+  // test et verrouillage
   var noErrorQuantity = true; // true = pas d'erreur, sert de verrouillage
   var listeIngredientsTestNoErrorQuantity = new Map(listeIngredients); // Crée une copie de la Map listeIngredients pour tester les quantités
-
+  
   const selectedIngredient1 = ingredient1.value;
   const selectedIngredient2 = ingredient2.value;
   const selectedIngredient3 = ingredient3.value;
 
-  console.log(listeIngredientsTestNoErrorQuantity);
+  // console.log(listeIngredientsTestNoErrorQuantity);
 
   // Vérifiez que chaque ingrédient a suffisamment de quantité, puis réduisez la quantité de 1
   if (listeIngredientsTestNoErrorQuantity.get(selectedIngredient1) > 0) {
@@ -106,7 +93,7 @@ document.getElementById("creationBurger").addEventListener("submit", function(ev
     noErrorQuantity = false;
   }
 
-  console.log(listeIngredientsTestNoErrorQuantity);
+  // console.log(listeIngredientsTestNoErrorQuantity);
 
   if (noErrorQuantity) {
 
@@ -144,10 +131,7 @@ document.getElementById("creationBurger").addEventListener("submit", function(ev
     console.log("il n'y a pas assez d'ingrédients pour créer un burger");
   }
 
-
 });
-
-
 
 // suppression des ingredient
 document.getElementById("supressionIngredient").addEventListener("submit", function(event) {
@@ -168,8 +152,6 @@ document.getElementById("resetListBurger").addEventListener("submit", function(e
   location.reload();
   }
 );
-
-
 
 // reaprovisionnement des ingredient
 document.getElementById("InitialisationIngredient").addEventListener("submit", function(event) {
@@ -194,4 +176,3 @@ nomBurger.addEventListener("keyup", function (event) { // ajoute un écouteur d'
         noErrorName = true;
     }
 });
-
