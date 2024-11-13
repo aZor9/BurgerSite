@@ -88,14 +88,21 @@ document.getElementById("creationBurger").addEventListener("submit", function(ev
       
     // Mettez à jour le localStorage avec les nouvelles quantités
     window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries())));
+    
+    ErreurIngredient.style.display = "none";  
+    creationBurgerGood.style.display = "block";
+    setTimeout(() => {
+      creationBurgerGood.style.display = "none";
+      location.reload();
+    }, 5000);
     console.log("Burger créé avec les quantités mises à jour :", listeIngredients);
-      
+
   } else {
+    ErreurIngredient.style.display = "block";
+    creationBurgerGood.style.display = "none";
     console.log("il n'y a pas assez d'ingrédients pour créer un burger");
   }
 
-  location.reload();
-  console.log("Rechargement de la page");
 
 });
 
