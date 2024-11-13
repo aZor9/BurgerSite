@@ -60,3 +60,11 @@ document.getElementById("creationIngredient").addEventListener("submit", functio
   }}
 );
   
+
+// suppression des ingredient
+document.getElementById("supressionIngredient").addEventListener("submit", function(event) {
+    event.preventDefault();
+    window.localStorage.removeItem("listeIngredients");
+    console.log("Ingrédients supprimés");
+    }
+  );

@@ -40,3 +40,5 @@ setInterval(changeDiaporamaBurgerImg, 1000);
 
 // window.localStorage.setItem("test", "test");
 // console.log(window.localStorage.getItem("test"));
+
+
