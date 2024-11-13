@@ -35,9 +35,13 @@ quantity.addEventListener("keyup", function (event) { // ajoute un écouteur d'�
 
 
 
+if (window.localStorage.getItem("listeIngredients")) { // si la clé "listeIngredients" existe dans le localStorage
+    const savedIngredients = window.localStorage.getItem("listeIngredients");
+    listeIngredients = new Map(JSON.parse(savedIngredients)); // Convertir la chaîne JSON en array, puis en Map
+    // console.log(listeIngredients);
+}
 
-
-
+// console.log(window.localStorage.getItem("test"));
 
 document.getElementById("creationIngredient").addEventListener("submit", function(event) {
     event.preventDefault(); // empêche l'envoi du formulaire pour pouvoir traiter les données
@@ -51,9 +55,8 @@ document.getElementById("creationIngredient").addEventListener("submit", functio
         listeIngredients.set(nomIngredient, parseInt(quantiteIngredient, 10));
     
         console.log(listeIngredients);
-        localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
+        window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
 
   }}
 );
   
-
