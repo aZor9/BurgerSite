@@ -37,7 +37,7 @@
       <form id="creationBurger">
         <!-- champ nom -->
         <label for="nom">Nom de l'ingredient</label> <br>
-        <input class="form-control" type="text" id="nom" name="nom" placeholder="Ex : Burger Végétarien">
+        <input required class="form-control" type="text" id="nomBurger" name="nom" placeholder="Ex : Burger Végétarien">
 
 
         <br>
@@ -64,6 +64,9 @@
         <button class="btn btn-primary">Creer le burger</button>
       </form>
     </div>
+    <div>
+      <p class="alert alert-danger shadow" id="ErreurBurgerNom" style="display:none;">Il y a une erreur dans le nom !</p>
+    </div>
 
     <div>
       <p class="alert alert-danger shadow" id="ErreurIngredient" style="display:none;">Il y a une erreur dans la quantité !</p>
@@ -76,6 +79,9 @@
     </div>
     <form id="supressionIngredient" class="my-3">
       <button class="btn btn-danger">Reinitialiser les ingredients</button>
+    </form>
+    <form id="InitialisationIngredient" class="my-3">
+      <button class="btn btn-success">Réaprovisionnement les ingredients</button>
     </form>
 
   </div>
