@@ -44,4 +44,12 @@ Le projet **BurgerFactory** est une application web permettant de gérer des ing
 
 ## Fonctionnement
 
+
+### Lancement
+Il faut herberger les fichier dans un serveur et ouvrir sur via un navigateur le fichier `index.html`
+<br>
+-> **conseil** : utiliser par exemple `WampServer`, ou l'extension VsCode `Live Server`
+
+
+### Informations
 Les données (ingrédients et burgers) sont stockées dans le `localStorage` du navigateur. Cela permet de conserver les informations même après le rechargement de la page.
