@@ -12,6 +12,7 @@ let lieu = document.getElementById("lieu");
 let codePostal = document.getElementById("codePostal");
 let ville = document.getElementById("ville");
 let productions = document.getElementById("productions");
+let error = document.getElementById("error");
 
 /*
 
@@ -36,6 +37,9 @@ function stockData() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
         const $data = JSON.parse(this.responseText)
         showData($data);
+        error.style.display = "none";
+    } else {
+        error.style.display = "block";
     }
 }
 
@@ -56,12 +60,13 @@ function showData($data) {
     // Créer une balise li pour chaque nom de production
     productionsData.forEach(production => {
         const li = document.createElement("li");
-        console.log(production.nom);
         li.textContent = production.nom;
         productions.appendChild(li);
     });
 
 }
+
+
 
 getData();
 
