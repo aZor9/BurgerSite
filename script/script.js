@@ -31,7 +31,11 @@ function changeDiaporamaBurgerImg() {
 }
 
 function formatBurgerName(name) {
-    return name.replace("_", " ")
+    name = name.replace("_", " ");
+    if (name.includes("_")) {
+        name = name.replace("_", " ");
+    }
+    return name;
 }
 
 /*
@@ -40,8 +44,10 @@ function formatBurgerName(name) {
 slideshowBurgerImg.onclick = function () {
     if (burgerName.style.display === "none") {
         burgerName.style.display = "block";
+        document.getElementById("espaceVide").style.display = "none";
     } else {
         burgerName.style.display = "none";
+        document.getElementById("espaceVide").style.display = "block";
     }
 };
 
