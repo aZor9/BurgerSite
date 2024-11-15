@@ -27,9 +27,7 @@ function showData($data) {
     lieu.textContent = $data["items"][0]["adressesOperateurs"][0]["lieu"];
     codePostal.textContent = $data["items"][0]["adressesOperateurs"][0]["codePostal"];
     ville.textContent = $data["items"][0]["adressesOperateurs"][0]["ville"];
-
     let productionsData = $data["items"][0]["productions"];
-    let productionsNom = [];
 
     productionsData.forEach(production => {
         const li = document.createElement("li");
@@ -38,7 +36,6 @@ function showData($data) {
         productions.appendChild(li);
     });
 
-    console.log(numeroBio, gerant, lieu, codePostal, ville, productionsNom);
 }
 
 getData();
