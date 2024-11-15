@@ -12,7 +12,7 @@ const imgBurgerName = [
     "burger_bacon",
 ];
 
-let index = 0;
+let index = 1;
 
 /*
     Modifie le chemin de l'image du burger affiché 
@@ -51,5 +51,4 @@ slideshowBurgerImg.onclick = function () {
     }
 };
 
-changeDiaporamaBurgerImg();
-setInterval(changeDiaporamaBurgerImg, 10000);
+setInterval(changeDiaporamaBurgerImg, 1000);
