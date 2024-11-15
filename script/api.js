@@ -1,4 +1,11 @@
 const urlApi = "https://opendata.agencebio.org/api/gouv/operateurs/?siret=79317749400028";
+
+/*
+
+    Récupération du code HTML nécessaire 
+
+*/
+
 let numeroBio = document.getElementById("numeroBio");
 let gerant = document.getElementById("gerant");
 let lieu = document.getElementById("lieu");
@@ -6,12 +13,24 @@ let codePostal = document.getElementById("codePostal");
 let ville = document.getElementById("ville");
 let productions = document.getElementById("productions");
 
+/*
+
+    Instentie un Appel AJAX
+
+*/
+
 function getData() {
     let request = new XMLHttpRequest();
     request.onreadystatechange = stockData;
     request.open('GET', urlApi);
     request.send();
 }
+
+/*
+
+    Récupère le resultat de l'appel ajax et stock le résultat sous un format JSON 
+
+*/
 
 function stockData() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
