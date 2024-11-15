@@ -22,9 +22,11 @@ quantity.addEventListener("keyup", function (event) {
     var quantityValue = quantity.value.trim(); 
     if (!/^\d+$/.test(quantityValue)) { 
         ErreurIngredientQuantite.style.display = "block";
+        creationIngredientGood.style.display = "none";
         noErrorQuantity = false;
     } else if (parseInt(quantityValue, 10) <= 1) { 1
         ErreurIngredientQuantite.style.display = "block";
+        creationIngredientGood.style.display = "none";
         noErrorQuantity = false;
     } else { 
         ErreurIngredientQuantite.style.display = "none";
@@ -55,6 +57,15 @@ document.getElementById("creationIngredient").addEventListener("submit", functio
         // console.log(listeIngredients);
         localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
 
+        creationIngredientGood.style.display = "block";    
+        setTimeout(() => {
+            creationIngredientGood.style.display = "none";
+            location.reload();
+          }, 3000);
+
+
+  } else {
+    creationIngredientGood.style.display = "none";
   }}
 );
   

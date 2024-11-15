@@ -60,7 +60,6 @@ document.getElementById("creationBurger").addEventListener("submit", function (e
   const selectedIngredient1 = ingredient1.value;
   const selectedIngredient2 = ingredient2.value;
   const selectedIngredient3 = ingredient3.value;
-
   // console.log(listeIngredientsTestNoErrorQuantity);
 
   // Vérifiez que chaque ingrédient a suffisamment de quantité, puis réduisez la quantité de 1
@@ -74,7 +73,6 @@ document.getElementById("creationBurger").addEventListener("submit", function (e
   checkQuantity(selectedIngredient1);
   checkQuantity(selectedIngredient2);
   checkQuantity(selectedIngredient3);
-
   // console.log(listeIngredientsTestNoErrorQuantity);
 
   if (noErrorQuantity) {
@@ -104,7 +102,7 @@ document.getElementById("creationBurger").addEventListener("submit", function (e
     setTimeout(() => {
       creationBurgerGood.style.display = "none";
       location.reload();
-    }, 2500);
+    }, 3000);
     console.log("Burger créé avec les quantités mises à jour :", listeIngredients);
 
   } else {
