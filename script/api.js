@@ -1,4 +1,10 @@
-const urlApi = "https://opendata.agencebio.org/api/gouv/operateurs/?siret=79317749400028";
+const urlApi = "https://opendata.agencebio.org/api/gouv/operateurs/?siret=7931774940002";
+let numeroBio = document.getElementById("numeroBio");
+let gerant = document.getElementById("gerant");
+let lieu = document.getElementById("lieu");
+let codePostal = document.getElementById("codePostal");
+let ville = document.getElementById("ville");
+let productions = document.getElementById("productions");
 
 function getData() {
     let request = new XMLHttpRequest();
@@ -14,15 +20,6 @@ function stockData() {
     }
 }
 
-function getHTML() {
-    const numeroBio = document.getElementById("numeroBio");
-    const gerant = document.getElementById("gerant");
-    const lieu = document.getElementById("lieu");
-    const codePostal = document.getElementById("codePostal");
-    const ville = document.getElementById("ville");
-    const productions = document.getElementById("productions");
-
-}
 
 function showData($data) {
     numeroBio.textContent = $data["items"][0]["numeroBio"];
@@ -42,4 +39,4 @@ function showData($data) {
 }
 
 getData();
-getHTML();
+
