@@ -33,8 +33,10 @@
   <div class="container" style="height: 50px;"></div>
   <div class="shadow rounded w-75 container d-flex flex-column align-items-center ">
 
-    <div class="shadow rounded w-75 container d-flex align-items-center  justify-content-center my-5 form-group"
+    <div
+      class="shadow rounded w-75 container d-flex flex-column align-items-center  justify-content-center my-5 form-group"
       style="height: 300px;">
+      <h4>Création d'un ingrédient</h4>
       <form id="creationIngredient">
         <!-- champ nom -->
         <label for="nom">Nom de l'ingredient</label> <br>
@@ -43,7 +45,8 @@
         <br>
         <!-- champ Quantité -->
         <label for="number">Quantité</label> <br>
-        <input required class="form-control" type="text" id="quantiteIngredient" name="Quantité" placeholder="Minimum 1" />
+        <input required class="form-control" type="text" id="quantiteIngredient" name="Quantité"
+          placeholder="Minimum 1" />
 
 
         <br>
@@ -53,8 +56,10 @@
     </div>
 
     <div>
-      <p class="alert alert-danger shadow" id="ErreurIngredientQuantite" style="display:none;">Il y a une erreur dans la quantité !</p>
-      <p class="alert alert-danger shadow" id="ErreurIngredientNom" style="display:none;">Il y a une erreur dans le nom !</p>
+      <p class="alert alert-danger shadow" id="ErreurIngredientQuantite" style="display:none;">Il y a une erreur dans la
+        quantité !</p>
+      <p class="alert alert-danger shadow" id="ErreurIngredientNom" style="display:none;">Il y a une erreur dans le nom
+        !</p>
     </div>
 
     <div class="shadow rounded w-75 container d-flex align-items-center justify-content-center my-5"
@@ -71,7 +76,7 @@
 
 
   </div>
-<div style="height: 50px;"></div>
+  <div style="height: 50px;"></div>
 
 
   <script src="script/create_ingredient.js" type="module"></script>

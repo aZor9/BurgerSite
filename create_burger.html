@@ -7,17 +7,15 @@
   <title>Burger</title>
   <style href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
- 
     #burgerTable {
       border-radius: 10px;
-      overflow: hidden; /* Empêche le contenu de dépasser les coins arrondis */
+      overflow: hidden;
+      /* Empêche le contenu de dépasser les coins arrondis */
     }
-
   </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
+</head>
 
 <body>
 
@@ -40,7 +38,9 @@
   <div class="container" style="height: 50px;"></div>
   <div class="shadow rounded w-75 container d-flex flex-column align-items-center ">
 
-    <div class="shadow rounded w-75 container d-flex align-items-center  justify-content-center my-5 py-4 form-group" >
+    <div class="shadow rounded w-75 container d-flex flex-column  justify-content-center my-5 py-4 form-group">
+      <h4>Création d'un Burger</h4>
+
       <form id="creationBurger">
         <!-- champ nom -->
         <label for="nom">Nom de l'ingredient</label> <br>
@@ -54,48 +54,47 @@
         <!-- champ Choix ingredient -->
         <label for="ingredient1">Choix de l'ingredient</label><br>
         <select class="form-control" id="ingredient1" name="ingredient1"></select>
-        
+
         <br>
         <!-- champ Choix ingredient -->
         <label for="ingredient2">Choix de l'ingredient</label> <br>
-        <select  class="form-control" id="ingredient2" name="ingredient2"></select>
-            
+        <select class="form-control" id="ingredient2" name="ingredient2"></select>
+
         <br>
         <!-- champ Choix ingredient -->
         <label for="ingredient3">Choix de l'ingredient</label> <br>
-        <select  class="form-control" id="ingredient3" name="ingredient3"></select>
-              
+        <select class="form-control" id="ingredient3" name="ingredient3"></select>
+
 
         <br>
         <!-- bouton de validation -->
-         <div class="text-center">
-           <button class="btn btn-primary">Creer le burger</button>
-         </div>
+        <div class="text-center">
+          <button class="btn btn-primary">Creer le burger</button>
+        </div>
       </form>
     </div>
     <div>
-      <p class="alert alert-danger shadow" id="ErreurBurgerNom" style="display:none;">Il y a une erreur dans le nom !</p>
-      <p class="alert alert-danger shadow" id="ErreurIngredient" style="display:none;">Il y a une erreur dans la quantité !</p>
+      <p class="alert alert-danger shadow" id="ErreurBurgerNom" style="display:none;">Il y a une erreur dans le nom !
+      </p>
+      <p class="alert alert-danger shadow" id="ErreurIngredient" style="display:none;">Il y a une erreur dans la
+        quantité !</p>
       <p class="alert alert-success shadow" id="creationBurgerGood" style="display:none;">Burger crée avec succée !</p>
     </div>
 
-    <div class="shadow rounded w-75 container d-flex align-items-center justify-content-center my-5" style="height: 300px;">
-      <img class="shadow rounded" src="images/burger/burger_naturel.jpeg" alt="Image de Burger" style="text-align: center; width: 250px; ">
-      <div class="m-2"></div>
-      <img class="shadow rounded" src="images/burger/burger_vegetarien.jpeg" alt="Image de Burger" style="text-align: center; width: 250px; ">
+    <div class="shadow rounded w-75 container d-flex align-items-center justify-content-center my-5"
+      style="height: 300px;">
+      <img class="shadow rounded m-1" src="images/burger/burger_naturel.jpeg" alt="Image de Burger"
+        style="text-align: center; width: 150px; ">
+      <img class="shadow rounded m-1" src="images/burger/burger_vegetarien.jpeg" alt="Image de Burger"
+        style="text-align: center; width: 150px; ">
+      <img class="shadow rounded m-1" src="images/burger/burger_double_cheese.jpeg" alt="Image de Burger"
+        style="text-align: center; width: 150px; ">
+      <img class="shadow rounded m-1" src="images/burger/burger_bacon.jpeg" alt="Image de Burger"
+        style="text-align: center; width: 150px; ">
+      <img class="shadow rounded m-1" src="images/burger/burger_chicken.jpeg" alt="Image de Burger"
+        style="text-align: center; width: 150px; ">
     </div>
 
-    <div class="px-5 py-2 shadow rounded my-3 text-center">
-      <form id="supressionIngredient" class="my-3">
-        <button class="btn btn-danger">Reinitialiser les ingredients</button>
-      </form>
-      <form id="resetListBurger" class="my-3">
-        <button class="btn btn-danger">Reinitialiser la liste des burgers</button>
-      </form>
-      <form id="InitialisationIngredient" class="my-3">
-        <button class="btn btn-success">Réaprovisionnement les ingredients</button>
-      </form>
-    </div>
 
 
     <div class="px-5 py-1 shadow rounded my-3">
@@ -114,8 +113,21 @@
         </table>
       </div>
     </div>
-      <div style="height: 25px;"></div>
+    <div style="height: 25px;"></div>
+
+    <div class="px-5 py-2 shadow rounded my-3 text-center">
+      <form id="supressionIngredient" class="my-3">
+        <button class="btn btn-danger">Reinitialiser les ingredients</button>
+      </form>
+      <form id="resetListBurger" class="my-3">
+        <button class="btn btn-danger">Reinitialiser la liste des burgers</button>
+      </form>
+      <form id="InitialisationIngredient" class="my-3">
+        <button class="btn btn-success">Réaprovisionnement les ingredients</button>
+      </form>
+    </div>
   </div>
+
 
 
 
