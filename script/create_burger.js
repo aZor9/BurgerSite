@@ -28,7 +28,7 @@ if (window.localStorage.getItem("listeBurgers")) {
     nameCell.textContent = nomBurger;
     row.appendChild(nameCell);
     const ingredientsCell = document.createElement("td");
-    ingredientsCell.textContent = ingredients.join(", "); 
+    ingredientsCell.textContent = ingredients.join(" + "); 
     row.appendChild(ingredientsCell);
     burgerTableBody.appendChild(row);
   });
