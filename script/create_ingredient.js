@@ -34,8 +34,8 @@ quantity.addEventListener("keyup", function (event) {
 
 
 // utilisation du localstorage pour la liste des ingredients
-if (window.localStorage.getItem("listeIngredients")) { 
-    const savedIngredients = window.localStorage.getItem("listeIngredients");
+if (localStorage.getItem("listeIngredients")) { 
+    const savedIngredients = localStorage.getItem("listeIngredients");
     listeIngredients = new Map(JSON.parse(savedIngredients)); // Convertir la chaîne JSON en array, puis en Map
     // console.log(listeIngredients);
 }
@@ -53,7 +53,7 @@ document.getElementById("creationIngredient").addEventListener("submit", functio
         listeIngredients.set(nomIngredient, parseInt(quantiteIngredient, 10));
     
         // console.log(listeIngredients);
-        window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
+        localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
 
   }}
 );
@@ -62,7 +62,7 @@ document.getElementById("creationIngredient").addEventListener("submit", functio
 // suppression des ingredient
 document.getElementById("supressionIngredient").addEventListener("submit", function(event) {
     event.preventDefault();
-    window.localStorage.removeItem("listeIngredients");
+    localStorage.removeItem("listeIngredients");
     console.log("Ingrédients supprimés");
     }
   );

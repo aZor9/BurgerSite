@@ -1,9 +1,9 @@
 // Initialisation de la Map
 let listeIngredients = new Map();
-if (window.localStorage.getItem("listeIngredients")) {
-  const savedIngredients = window.localStorage.getItem("listeIngredients"); // Récupérer la Map depuis le localStorage
+if (localStorage.getItem("listeIngredients")) {
+  const savedIngredients = localStorage.getItem("listeIngredients"); // Récupérer la Map depuis le localStorage
   listeIngredients = new Map(JSON.parse(savedIngredients)); // Convertir la chaîne JSON en array, puis en Map  
-  window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la restocker dans le localStorage    
+  localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la restocker dans le localStorage    
 } else {
   console.log("Aucun ingrédient n'a été enregistré");
 }
@@ -15,10 +15,10 @@ const ingredient3 = document.getElementById("ingredient3");
 // Liste des burgers
 let listeBurgers = new Map();
 let ingredientBurger = [];
-if (window.localStorage.getItem("listeBurgers")) {
-  const savedBurgers = window.localStorage.getItem("listeBurgers");
+if (localStorage.getItem("listeBurgers")) {
+  const savedBurgers = localStorage.getItem("listeBurgers");
   listeBurgers = new Map(JSON.parse(savedBurgers)); // Convertir la chaîne JSON en array, puis en Map
-  window.localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
+  localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
 
   // affichage des burgers en format tableau
   const burgerTableBody = document.querySelector("#burgerTable tbody");
@@ -82,7 +82,7 @@ document.getElementById("creationBurger").addEventListener("submit", function (e
     // creation du burger 
     ingredientBurger = [selectedIngredient1, selectedIngredient2, selectedIngredient3];
     listeBurgers.set(document.getElementById("nomBurger").value, ingredientBurger);
-    window.localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries())));
+    localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries())));
 
     // modifier les quantités des ingrédients sur la vrai map
     listeIngredients.set(selectedIngredient1, listeIngredients.get(selectedIngredient1) - 1);
@@ -97,7 +97,7 @@ document.getElementById("creationBurger").addEventListener("submit", function (e
     });
 
     // Mettez à jour le localStorage avec les nouvelles quantités
-    window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries())));
+    localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries())));
 
     ErreurIngredient.style.display = "none";
     creationBurgerGood.style.display = "block";
@@ -118,7 +118,7 @@ document.getElementById("creationBurger").addEventListener("submit", function (e
 // suppression des ingredient
 document.getElementById("supressionIngredient").addEventListener("submit", function (event) {
   event.preventDefault();
-  window.localStorage.removeItem("listeIngredients");
+  localStorage.removeItem("listeIngredients");
   listeIngredients.clear();
   console.log("Ingrédients supprimés");
   location.reload();
@@ -128,7 +128,7 @@ document.getElementById("supressionIngredient").addEventListener("submit", funct
 // suppression des burger
 document.getElementById("resetListBurger").addEventListener("submit", function (event) {
   event.preventDefault();
-  window.localStorage.removeItem("listeBurgers");
+  localStorage.removeItem("listeBurgers");
   listeBurgers.clear();
   console.log("Burgers supprimés");
   location.reload();
@@ -141,7 +141,7 @@ document.getElementById("InitialisationIngredient").addEventListener("submit", f
   listeIngredients.set("Tomate", 5);
   listeIngredients.set("Fromage", 2);
   listeIngredients.set("Steak", 1);
-  window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries())));
+  localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries())));
   console.log("Ingrédients réapprovisionnés");
 }
 );
