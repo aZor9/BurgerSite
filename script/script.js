@@ -1,18 +1,27 @@
 const slideshowBurgerImg = document.getElementById("slideshowBurgerImg");
 const burgerName = document.getElementById("burgerName");
 
+/*
+    Nom des images des burgers 
+*/
 const imgBurgerName = [
     "burger_naturel",
-    "burger_vegetarien"
+    "burger_vegetarien",
+    "burger_double_cheese",
+    "burger_chicken",
+    "burger_bacon",
 ];
 
 let index = 0;
 
+/*
+    Modifie le chemin de l'image du burger affiché 
+*/
 function changeDiaporamaBurgerImg() {
-    let path = imgBurgerName[index];
-    slideshowBurgerImg.setAttribute("src", "images/burger/" + path + ".jpeg");
+    let name = imgBurgerName[index];
+    slideshowBurgerImg.setAttribute("src", "images/burger/" + name + ".jpeg");
 
-    burgerName.textContent = formatBurgerName(path);
+    burgerName.textContent = formatBurgerName(name);
 
     if ((index + 1) == imgBurgerName.length) {
         index = 0;
@@ -21,10 +30,13 @@ function changeDiaporamaBurgerImg() {
     }
 }
 
-function formatBurgerName(path) {
-    return path.replace("_", " ")
+function formatBurgerName(name) {
+    return name.replace("_", " ")
 }
 
+/*
+    Affiche ou cache le nom du burger affiché
+*/
 slideshowBurgerImg.onclick = function () {
     if (burgerName.style.display === "none") {
         burgerName.style.display = "block";
@@ -33,8 +45,5 @@ slideshowBurgerImg.onclick = function () {
     }
 };
 
-setInterval(changeDiaporamaBurgerImg, 1000);
-
-// test localStorage
-// window.localStorage.setItem("test", "test");
-// console.log(window.localStorage.getItem("test"));
+changeDiaporamaBurgerImg();
+setInterval(changeDiaporamaBurgerImg, 10000);
