@@ -34,25 +34,20 @@ if (window.localStorage.getItem("listeBurgers")) {
   });
 }
 
-//affichage des ingrédients
-listeIngredients.forEach((quantite, nom) => {
-  const option = document.createElement("option"); 
-  option.value = nom;
-  option.textContent = `${nom} - ${quantite}`;      
-  ingredient1.appendChild(option);                  
-});
-listeIngredients.forEach((quantite, nom) => {
-  const option = document.createElement("option"); 
-  option.value = nom;        
-  option.textContent = `${nom} - ${quantite}`;   
-  ingredient2.appendChild(option);     
-});
-listeIngredients.forEach((quantite, nom) => {
-  const option = document.createElement("option"); 
-  option.value = nom;                   
-  option.textContent = `${nom} - ${quantite}`; 
-  ingredient3.appendChild(option);             
-});
+
+// affichage ingredient 
+function affichageIngredient(numIngredient) {
+  listeIngredients.forEach((quantite, nom) => {
+    const option = document.createElement("option"); 
+    option.value = nom;
+    option.textContent = `${quantite} - ${nom}  `;      
+    numIngredient.appendChild(option);                  
+  });
+}
+affichageIngredient(ingredient1);
+affichageIngredient(ingredient2);
+affichageIngredient(ingredient3);
+
 
 // création du burger
 document.getElementById("creationBurger").addEventListener("submit", function(event) {
@@ -69,23 +64,16 @@ document.getElementById("creationBurger").addEventListener("submit", function(ev
   // console.log(listeIngredientsTestNoErrorQuantity);
 
   // Vérifiez que chaque ingrédient a suffisamment de quantité, puis réduisez la quantité de 1
-  if (listeIngredientsTestNoErrorQuantity.get(selectedIngredient1) > 0) {
-    listeIngredientsTestNoErrorQuantity.set(selectedIngredient1, listeIngredientsTestNoErrorQuantity.get(selectedIngredient1) - 1);
-  } else  {
-    noErrorQuantity = false;
+  function checkQuantity(selectedIngredient) {
+    if (listeIngredientsTestNoErrorQuantity.get(selectedIngredient) > 0) {
+      listeIngredientsTestNoErrorQuantity.set(selectedIngredient, listeIngredientsTestNoErrorQuantity.get(selectedIngredient) - 1);
+    } else  {
+      noErrorQuantity = false;
+    }
   }
-
-  if (listeIngredientsTestNoErrorQuantity.get(selectedIngredient2) > 0) {
-    listeIngredientsTestNoErrorQuantity.set(selectedIngredient2, listeIngredientsTestNoErrorQuantity.get(selectedIngredient2) - 1);
-  } else  {
-    noErrorQuantity = false;
-  }
-
-  if (listeIngredientsTestNoErrorQuantity.get(selectedIngredient3) > 0) {
-    listeIngredientsTestNoErrorQuantity.set(selectedIngredient3, listeIngredientsTestNoErrorQuantity.get(selectedIngredient3) - 1);
-  } else  {
-    noErrorQuantity = false;
-  }
+  checkQuantity(selectedIngredient1);
+  checkQuantity(selectedIngredient2);
+  checkQuantity(selectedIngredient3);  
 
   // console.log(listeIngredientsTestNoErrorQuantity);
 
@@ -116,7 +104,7 @@ document.getElementById("creationBurger").addEventListener("submit", function(ev
     setTimeout(() => {
       creationBurgerGood.style.display = "none";
       location.reload();
-    }, 5000);
+    }, 2500);
     console.log("Burger créé avec les quantités mises à jour :", listeIngredients);
 
   } else {
@@ -149,10 +137,10 @@ document.getElementById("resetListBurger").addEventListener("submit", function(e
 
 // reaprovisionnement des ingredient
 document.getElementById("InitialisationIngredient").addEventListener("submit", function(event) {
-  listeIngredients.set("Salade Test", 10); 
-  listeIngredients.set("Tomate Test", 5);
-  listeIngredients.set("Fromage Test", 2);
-  listeIngredients.set("Steak Test", 1);  
+  listeIngredients.set("Salade", 10); 
+  listeIngredients.set("Tomate", 5);
+  listeIngredients.set("Fromage", 2);
+  listeIngredients.set("Steak", 1);  
   window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); 
   console.log("Ingrédients réapprovisionnés");
   }
