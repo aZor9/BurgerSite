@@ -39,6 +39,11 @@ function stockData() {
     }
 }
 
+/* 
+
+    Update le code HTML avec les résultat de l'API
+
+*/
 
 function showData($data) {
     numeroBio.textContent = $data["items"][0]["numeroBio"];
@@ -48,6 +53,7 @@ function showData($data) {
     ville.textContent = $data["items"][0]["adressesOperateurs"][0]["ville"];
     let productionsData = $data["items"][0]["productions"];
 
+    // Créer une balise li pour chaque nom de production
     productionsData.forEach(production => {
         const li = document.createElement("li");
         console.log(production.nom);
