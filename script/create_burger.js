@@ -1,63 +1,57 @@
 // Initialisation de la Map
 let listeIngredients = new Map(); 
-if (window.localStorage.getItem("listeIngredients")) { // si la clé "listeIngredients" existe dans le localStorage
-  const savedIngredients = window.localStorage.getItem("listeIngredients"); // Récupérer la Map depuis le localStorage et la convertir en Map
+if (window.localStorage.getItem("listeIngredients")) { 
+  const savedIngredients = window.localStorage.getItem("listeIngredients"); // Récupérer la Map depuis le localStorage
   listeIngredients = new Map(JSON.parse(savedIngredients)); // Convertir la chaîne JSON en array, puis en Map  
-  window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage    
+  window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la restocker dans le localStorage    
 } else {
     console.log("Aucun ingrédient n'a été enregistré");
 }
-// console.log(window.localStorage.getItem("test"));
 
 const ingredient1 = document.getElementById("ingredient1");
 const ingredient2 = document.getElementById("ingredient2");
 const ingredient3 = document.getElementById("ingredient3");
 
 // Liste des burgers
-let listeBurgers = new Map(); // Map listant les burgers (nom, ingrédients)
-let ingredientBurger = []; // Array listant les ingrédients de chaque burger (ingrédient1, ingrédient2, ingrédient3)
-if (window.localStorage.getItem("listeBurgers")) { // si la clé "listeBurgers" existe dans le localStorage
-  const savedBurgers = window.localStorage.getItem("listeBurgers"); // Récupérer la Map depuis le localStorage et la convertir en Map
+let listeBurgers = new Map(); 
+let ingredientBurger = []; 
+if (window.localStorage.getItem("listeBurgers")) { 
+  const savedBurgers = window.localStorage.getItem("listeBurgers"); 
   listeBurgers = new Map(JSON.parse(savedBurgers)); // Convertir la chaîne JSON en array, puis en Map
   window.localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
 
-  // Sélectionnez le corps de tableau où les burgers seront affichés
+  // affichage des burgers en format tableau
   const burgerTableBody = document.querySelector("#burgerTable tbody");
-  // Parcourez chaque burger dans la Map listeBurgers et créez une ligne pour chacun
   listeBurgers.forEach((ingredients, nomBurger) => {
-    // Créer une nouvelle ligne de tableau
     const row = document.createElement("tr");
-    // Créer une cellule pour le nom du burger
     const nameCell = document.createElement("td");
     nameCell.textContent = nomBurger;
     row.appendChild(nameCell);
-    // Créer une cellule pour les ingrédients
     const ingredientsCell = document.createElement("td");
-    ingredientsCell.textContent = ingredients.join(", "); // Convertit l'array d'ingrédients en une chaîne
+    ingredientsCell.textContent = ingredients.join(", "); 
     row.appendChild(ingredientsCell);
-    // Ajouter la ligne au corps du tableau
     burgerTableBody.appendChild(row);
   });
 }
 
 //affichage des ingrédients
 listeIngredients.forEach((quantite, nom) => {
-  const option = document.createElement("option"); // Crée une option
-  option.value = nom;                               // Définit la valeur
-  option.textContent = `${nom} - ${quantite}`;      // Affiche le nom et la quantité
-  ingredient1.appendChild(option);                  // Ajoute à la liste déroulante
+  const option = document.createElement("option"); 
+  option.value = nom;
+  option.textContent = `${nom} - ${quantite}`;      
+  ingredient1.appendChild(option);                  
 });
 listeIngredients.forEach((quantite, nom) => {
-  const option = document.createElement("option"); // Crée une option
-  option.value = nom;                               // Définit la valeur
-  option.textContent = `${nom} - ${quantite}`;      // Affiche le nom et la quantité
-  ingredient2.appendChild(option);                  // Ajoute à la liste déroulante
+  const option = document.createElement("option"); 
+  option.value = nom;        
+  option.textContent = `${nom} - ${quantite}`;   
+  ingredient2.appendChild(option);     
 });
 listeIngredients.forEach((quantite, nom) => {
-  const option = document.createElement("option"); // Crée une option
-  option.value = nom;                               // Définit la valeur
-  option.textContent = `${nom} - ${quantite}`;      // Affiche le nom et la quantité
-  ingredient3.appendChild(option);                  // Ajoute à la liste déroulante
+  const option = document.createElement("option"); 
+  option.value = nom;                   
+  option.textContent = `${nom} - ${quantite}`; 
+  ingredient3.appendChild(option);             
 });
 
 // création du burger
@@ -65,7 +59,7 @@ document.getElementById("creationBurger").addEventListener("submit", function(ev
   event.preventDefault(); // empêche l'envoi du formulaire pour pouvoir traiter les données
 
   // test et verrouillage
-  var noErrorQuantity = true; // true = pas d'erreur, sert de verrouillage
+  var noErrorQuantity = true; // true = pas d'erreur
   var listeIngredientsTestNoErrorQuantity = new Map(listeIngredients); // Crée une copie de la Map listeIngredients pour tester les quantités
   
   const selectedIngredient1 = ingredient1.value;
@@ -100,7 +94,7 @@ document.getElementById("creationBurger").addEventListener("submit", function(ev
     // creation du burger 
     ingredientBurger = [selectedIngredient1, selectedIngredient2, selectedIngredient3];
     listeBurgers.set(document.getElementById("nomBurger").value, ingredientBurger);
-    window.localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
+    window.localStorage.setItem("listeBurgers", JSON.stringify(Array.from(listeBurgers.entries()))); 
 
     // modifier les quantités des ingrédients sur la vrai map
     listeIngredients.set(selectedIngredient1, listeIngredients.get(selectedIngredient1) - 1);
@@ -159,19 +153,19 @@ document.getElementById("InitialisationIngredient").addEventListener("submit", f
   listeIngredients.set("Tomate Test", 5);
   listeIngredients.set("Fromage Test", 2);
   listeIngredients.set("Steak Test", 1);  
-  window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); // Convertir la Map en array, puis en chaîne JSON et la stocker dans le localStorage
+  window.localStorage.setItem("listeIngredients", JSON.stringify(Array.from(listeIngredients.entries()))); 
   console.log("Ingrédients réapprovisionnés");
   }
 );
 
 //mauvais nom de burger
-var nomBurger = document.getElementById("nomBurger"); // associe la variable nomBurger à l'élément HTML qui a l'id nomBurger
-nomBurger.addEventListener("keyup", function (event) { // ajoute un écouteur d'événement sur l'élément nomBurger
+var nomBurger = document.getElementById("nomBurger"); 
+nomBurger.addEventListener("keyup", function (event) { 
     var nomValue = nomBurger.value.trim(); // associe la variable nomValue à la valeur de nomBurger sans les espaces
-    if (/\d/.test(nomValue)) { // si nomValue contient un ou plusieurs chiffres
+    if (/\d/.test(nomValue)) { 
         ErreurBurgerNom.style.display = "block"; // affiche le message d'erreur
         noErrorName = false;
-    } else { // sinon, s'il n'y a pas de chiffres
+    } else {
       ErreurBurgerNom.style.display = "none"; // masque le message d'erreur
         noErrorName = true;
     }
