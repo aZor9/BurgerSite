@@ -2,7 +2,9 @@ const slideshowBurgerImg = document.getElementById("slideshowBurgerImg");
 const burgerName = document.getElementById("burgerName");
 
 /*
+
     Nom des images des burgers 
+    
 */
 const imgBurgerName = [
     "burger_naturel",
@@ -15,7 +17,9 @@ const imgBurgerName = [
 let index = 1;
 
 /*
+
     Modifie le chemin de l'image du burger affiché 
+
 */
 function changeDiaporamaBurgerImg() {
     let name = imgBurgerName[index];
@@ -39,7 +43,9 @@ function formatBurgerName(name) {
 }
 
 /*
+
     Affiche ou cache le nom du burger affiché
+
 */
 slideshowBurgerImg.onclick = function () {
     if (burgerName.style.display === "none") {
