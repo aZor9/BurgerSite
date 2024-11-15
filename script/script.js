@@ -51,4 +51,4 @@ slideshowBurgerImg.onclick = function () {
     }
 };
 
-setInterval(changeDiaporamaBurgerImg, 1000);
+setInterval(changeDiaporamaBurgerImg, 10000);
